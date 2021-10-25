@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hicorp.segment.mapper.MaintenanceMajorHardwareMapper">
+    <select id="countNumber" resultType="java.lang.Integer">
+        select count(*) from maintenance_major_hardware where is_approve = #{status, jdbcType=VARCHAR}
+    </select>
+    <select id="countEquipmentReplacementNumber" resultType="java.lang.Integer">
+        select count(*) from maintenance_equipment_replacement where is_approve = #{status, jdbcType=VARCHAR}
+    </select>
+    <select id="countTodayMajorHardwareNumber" resultType="java.lang.Integer">
+        select count(*) from maintenance_major_hardware where date_day_engineer = #{date, jdbcType=DATE}
+    </select>
+    <select id="countTodayEquipmentReplacementNumber" resultType="java.lang.Integer">
+        select count(*) from maintenance_equipment_replacement where date_day_engineer = #{date, jdbcType=DATE}
+    </select>
+</mapper>

@@ -1,0 +1,666 @@
+[
+  {
+    "id": 1,
+    "path": "/",
+    "title": "根目录",
+    "children": [
+      {
+        "icon": "home",
+        "path": "/home",
+        "title": "首页"
+      },
+      {
+        "icon": "users-cog",
+        "path": "/employment/index",
+        "title": "生产用人",
+        "children": [
+          {
+            "path": "/employment/department",
+            "title": "部门管理"
+          },
+          {
+            "path": "/employment/work-type",
+            "title": "工种管理"
+          },
+          {
+            "path": "/employment/internal-staff",
+            "title": "内部员工管理"
+          },
+          {
+            "path": "/employment/contract-team",
+            "title": "承包队管理"
+          },
+          {
+            "path": "/employment/external-staff",
+            "title": "外部员工管理"
+          }
+        ]
+      },
+      {
+        "icon": "house-user",
+        "path": "/production/index",
+        "title": "生产空间",
+        "children": [
+          {
+            "path": "/production/organization-setup",
+            "title": "组织设置"
+          },
+          {
+            "path": "/production/plant-maintenance",
+            "title": "工厂维护"
+          },
+          {
+            "path": "/production/workshop",
+            "title": "车间"
+          },
+          {
+            "path": "/production/production-line",
+            "title": "生产线"
+          },
+          {
+            "path": "/production/station-category",
+            "title": "工位类别"
+          },
+          {
+            "path": "/production/station",
+            "title": "工位"
+          },
+          {
+            "path": "/production/warehouse-category",
+            "title": "仓库类别"
+          },
+          {
+            "path": "/production/warehouse",
+            "title": "仓库"
+          },
+          {
+            "path": "/production/warehouse-location-maintenance",
+            "title": "仓库库位维护"
+          },
+          {
+            "path": "/production/steam-curing-kiln",
+            "title": "蒸养窑"
+          },
+          {
+            "path": "/production/water-pond",
+            "title": "水养池"
+          },
+          {
+            "path": "/production/sensor-maintenance",
+            "title": "传感器维护"
+          }
+        ]
+      },
+      {
+        "icon": "wrench",
+        "path": "/tools/index",
+        "title": "生产用具",
+        "children": [
+          {
+            "path": "/tools/vehicle-account",
+            "title": "车辆台账"
+          },
+          {
+            "path": "/tools/vehicle-positioning-management",
+            "title": "车辆定位管理"
+          },
+          {
+            "path": "/tools/mold-category",
+            "title": "模具类别"
+          },
+          {
+            "path": "/tools/mould",
+            "title": "模具"
+          },
+          {
+            "path": "/tools/tool-category",
+            "title": "工具类别"
+          },
+          {
+            "path": "/tools/tool",
+            "title": "工具"
+          }
+        ]
+      },
+      {
+        "icon": "industry",
+        "path": "/materials/index",
+        "title": "生产用料",
+        "children": [
+          {
+            "path": "/materials/category-of-purchased-materials",
+            "title": "外购物料类别"
+          },
+          {
+            "path": "/materials/steel-products",
+            "title": "钢材"
+          },
+          {
+            "path": "/materials/concrete-raw-materials",
+            "title": "混凝土原材料"
+          },
+          {
+            "path": "/materials/spare-parts",
+            "title": "零配件"
+          },
+          {
+            "path": "/materials/auxiliary-materials",
+            "title": "辅料辅材"
+          },
+          {
+            "path": "/materials/material-coding-rules",
+            "title": "物料编码规则"
+          }
+        ]
+      },
+      {
+        "icon": "tools",
+        "path": "/device/index",
+        "title": "设备管理",
+        "children": [
+          {
+            "path": "/device/equipment-category",
+            "title": "设备类别"
+          },
+          {
+            "path": "/device/equipment",
+            "title": "设备"
+          },
+          {
+            "path": "/device/device-io-maintenance",
+            "title": "设备读写接口维护"
+          },
+          {
+            "path": "/device/device-spot-check",
+            "title": "设备点检"
+          },
+          {
+            "path": "/device/device-up-keep",
+            "title": "设备保养"
+          },
+          {
+            "path": "/device/device-repair",
+            "title": "设备报修"
+          },
+          {
+            "path": "/device/device-maintenance",
+            "title": "设备维修"
+          },
+          {
+            "path": "/device/device-monitoring",
+            "title": "设备运行状态物联网采集监控"
+          },
+          {
+            "path": "/device/vehicle-category",
+            "title": "车辆类别"
+          }
+        ]
+      },
+      {
+        "icon": "atom",
+        "path": "/technology/index",
+        "title": "生产技术",
+        "children": [
+          {
+            "path": "/technology/homemade-category",
+            "title": "自制件类别"
+          },
+          {
+            "path": "/technology/self-made-code",
+            "title": "自制件编码维护"
+          },
+          {
+            "path": "/technology/process-category",
+            "title": "工序类别"
+          },
+          {
+            "path": "/technology/process-maintenance",
+            "title": "工序维护"
+          },
+          {
+            "path": "/technology/quality-inspection-define",
+            "title": "工序质检方案定义"
+          },
+          {
+            "path": "/technology/process-plan-maintenance",
+            "title": "工艺方案维护"
+          },
+          {
+            "path": "/technology/production-consumables-bom",
+            "title": "生产耗材BOM"
+          },
+          {
+            "path": "/technology/production-process-bom",
+            "title": "生产工艺BOM"
+          },
+          {
+            "path": "/technology/doc-upload-manage",
+            "title": "技术文档上传管理"
+          },
+          {
+            "path": "/technology/qr-code-disclosure",
+            "title": "二维码技术交底"
+          }
+        ]
+      },
+      {
+        "icon": "balance-scale-right",
+        "path": "/sales/index",
+        "title": "销售管理",
+        "children": [
+          {
+            "path": "/sales/customer-maintenance",
+            "title": "客户维护"
+          },
+          {
+            "path": "/sales/contract-maintenance",
+            "title": "合同维护"
+          },
+          {
+            "path": "/sales/order-maintenance",
+            "title": "订单维护"
+          },
+          {
+            "path": "/sales/customer-overview",
+            "title": "客户总览看板"
+          },
+          {
+            "path": "/sales/contract-execution",
+            "title": "合同执行看板"
+          },
+          {
+            "path": "/sales/order-trace-watch-board",
+            "title": "订单跟踪看板"
+          }
+        ]
+      },
+      {
+        "icon": "chalkboard-teacher",
+        "path": "/plans/index",
+        "title": "生产计划管理",
+        "children": [
+          {
+            "path": "/plans/complementary-ring-order",
+            "title": "补环订单编制"
+          },
+          {
+            "path": "/plans/patch-order-plan",
+            "title": "补片生产计划编制"
+          },
+          {
+            "path": "/plans/mrp-expansion",
+            "title": "订单生产任务MRP展开"
+          },
+          {
+            "path": "/plans/ring-code-auto",
+            "title": "环号自动生成"
+          },
+          {
+            "path": "/plans/patch-code-auto",
+            "title": "管片批号自动生成"
+          },
+          {
+            "path": "/plans/pending-patch-data",
+            "title": "待生产管片明细数据生成查询维护"
+          },
+          {
+            "path": "/plans/reinforcement-cage",
+            "title": "钢筋笼班次执行计划编制"
+          },
+          {
+            "path": "/plans/pouring-plan",
+            "title": "管片浇筑班次执行计划编制"
+          }
+        ]
+      },
+      {
+        "icon": "spinner",
+        "path": "/process/index",
+        "title": "生产过程控制",
+        "children": [
+          {
+            "path": "/process/start-work-setting",
+            "title": "生产班次开工设定"
+          },
+          {
+            "path": "/process/job-manage-template",
+            "title": "班次工位工作安排模板维护"
+          },
+          {
+            "path": "/process/confirm-job-manage",
+            "title": "班次工位工作安排确认"
+          },
+          {
+            "path": "/process/check-in",
+            "title": "工人扫码签到"
+          },
+          {
+            "path": "/process/rfid-io",
+            "title": "管片模具rfid标签读写"
+          },
+          {
+            "path": "/process/reinforcement-cage-completion-adjustment",
+            "title": "钢筋笼完工调整审核确认"
+          },
+          {
+            "path": "/process/concrete-pouring-number-confirmation",
+            "title": "混凝土浇筑关联管片批号确认"
+          },
+          {
+            "path": "/process/casting-complete",
+            "title": "浇筑完工调整审核确认"
+          },
+          {
+            "path": "/process/putin-steaming",
+            "title": "管片进入蒸养窑调整审核确认"
+          },
+          {
+            "path": "/process/putout-steaming",
+            "title": "管片出蒸养窑调整审核确认"
+          },
+          {
+            "path": "/process/members-were-de-mould",
+            "title": "构件脱模调整审核确认"
+          },
+          {
+            "path": "/process/building-block-info",
+            "title": "构件信息修改审核确认打码"
+          },
+          {
+            "path": "/process/putin-pools",
+            "title": "管片进入水养池调整审核确认"
+          },
+          {
+            "path": "/process/putout-pools",
+            "title": "管片出水养池调整审核确认"
+          },
+          {
+            "path": "/process/putin-yard",
+            "title": "管片扫码入堆场"
+          },
+          {
+            "path": "/process/load-shipments",
+            "title": "管片扫码装车发货"
+          },
+          {
+            "path": "/process/assembly-line-tracking",
+            "title": "流水线自动动态跟踪"
+          },
+          {
+            "path": "/process/app-tracking",
+            "title": "移动端手动查询跟踪"
+          },
+          {
+            "path": "/process/water-pool-monitoring",
+            "title": "水样池三维可视化大屏监控"
+          },
+          {
+            "path": "/process/yard-monitoring",
+            "title": "堆场三维可视化大屏监控"
+          },
+          {
+            "path": "/process/completion-form",
+            "title": "班次完工交接汇总表编制"
+          }
+        ]
+      },
+      {
+        "icon": "shopping-cart",
+        "path": "/purchasing/index",
+        "title": "采购管理",
+        "children": [
+          {
+            "path": "/purchasing/supplier",
+            "title": "供应商维护"
+          },
+          {
+            "path": "/purchasing/evaluation-criterion",
+            "title": "供应评价标准"
+          },
+          {
+            "path": "/purchasing/rating",
+            "title": "供应商等级评定"
+          },
+          {
+            "path": "/purchasing/po",
+            "title": "采购申请单"
+          },
+          {
+            "path": "/purchasing/orders",
+            "title": "采购订单"
+          },
+          {
+            "path": "/purchasing/arrival-order",
+            "title": "采购到货单"
+          },
+          {
+            "path": "/purchasing/price-list",
+            "title": "采购比价单"
+          },
+          {
+            "path": "/purchasing/exception-record",
+            "title": "采购订单异常记录单"
+          }
+        ]
+      },
+      {
+        "icon": "warehouse",
+        "path": "/inventory/index",
+        "title": "库存管理",
+        "children": [
+          {
+            "path": "/inventory/safety-stock-manage",
+            "title": "安全库存管理设定"
+          },
+          {
+            "path": "/inventory/number-setting",
+            "title": "入库原料批号设定暨二维码打印"
+          },
+          {
+            "path": "/inventory/purchased",
+            "title": "外购物料扫码入库"
+          },
+          {
+            "path": "/inventory/purchased-list",
+            "title": "外购物料入库单维护打印"
+          },
+          {
+            "path": "/inventory/blockbuster-raw-material",
+            "title": "过磅原料自动采集入库"
+          },
+          {
+            "path": "/inventory/steel-bar-inventory",
+            "title": "钢筋点数入库"
+          },
+          {
+            "path": "/inventory/raw-forearm",
+            "title": "原料领料出库"
+          },
+          {
+            "path": "/inventory/mixing-station-data",
+            "title": "搅拌站原料消耗数据自动对接出库"
+          },
+          {
+            "path": "/inventory/early-warning",
+            "title": "原料库存预警"
+          },
+          {
+            "path": "/inventory/check-off-prices",
+            "title": "原料核价"
+          },
+          {
+            "path": "/inventory/cost",
+            "title": "工程原料成本"
+          },
+          {
+            "path": "/inventory/visual-yard",
+            "title": "可视堆场"
+          },
+          {
+            "path": "/inventory/deliver",
+            "title": "成品发货"
+          },
+          {
+            "path": "/inventory/finished-inverted-library",
+            "title": "成品倒库"
+          },
+          {
+            "path": "/inventory/shipping-plan",
+            "title": "发货计划编制"
+          },
+          {
+            "path": "/inventory/entry-storage",
+            "title": "成品扫码入库"
+          }
+        ]
+      },
+      {
+        "icon": "hard-hat",
+        "path": "/quality/index",
+        "title": "质量管理",
+        "children": [
+          {
+            "path": "/quality/qc-criteria-category",
+            "title": "质检标准类别"
+          },
+          {
+            "path": "/quality/qc-maintenance",
+            "title": "质检标准维护"
+          },
+          {
+            "path": "/quality/qc-category",
+            "title": "质检类别"
+          },
+          {
+            "path": "/quality/qc-project",
+            "title": "质检项目维护"
+          },
+          {
+            "path": "/quality/qc-protocol",
+            "title": "质检方案维护"
+          },
+          {
+            "path": "/quality/raw-materials-exam",
+            "title": "原料检验"
+          },
+          {
+            "path": "/quality/procedure-quality-exam",
+            "title": "工序质量检验"
+          },
+          {
+            "path": "/quality/loop-number-control",
+            "title": "环号控制"
+          },
+          {
+            "path": "/quality/auto-cycling",
+            "title": "自动配环"
+          },
+          {
+            "path": "/quality/end-of-life",
+            "title": "构件报废"
+          },
+          {
+            "path": "/quality/pouring-data",
+            "title": "浇筑数据自动采集"
+          },
+          {
+            "path": "/quality/vibration-data",
+            "title": "振捣数据自动采集"
+          },
+          {
+            "path": "/quality/acquisition-steam-curing",
+            "title": "蒸汽养护数据自动采集"
+          },
+          {
+            "path": "/quality/water-conservation-data",
+            "title": "水养数据自动采集"
+          },
+          {
+            "path": "/quality/unqualified-handling",
+            "title": "不合格品处理"
+          },
+          {
+            "path": "/quality/concrete-fit-ratio-manage",
+            "title": "混凝土配合比管理"
+          },
+          {
+            "path": "/quality/qc-report-manage",
+            "title": "质检报告管理"
+          },
+          {
+            "path": "/quality/retrospectively",
+            "title": "质量追溯"
+          }
+        ]
+      },
+      {
+        "icon": "chart-line",
+        "path": "/core/index",
+        "title": "核心图表",
+        "children": [
+          {
+            "path": "/core/basic",
+            "title": "基础图表展示"
+          },
+          {
+            "path": "/core/center",
+            "title": "中控图表(普通展示)"
+          },
+          {
+            "path": "/core/prod-line",
+            "title": "产线图表(雷达图等)"
+          },
+          {
+            "path": "/core/reinforcement-cage",
+            "title": "钢筋笼图表(特殊图表)"
+          }
+        ]
+      },
+      {
+        "icon": "award",
+        "path": "/permission/index",
+        "title": "权限管理",
+        "children": [
+          {
+            "path": "/permission/role",
+            "title": "角色管理"
+          },
+          {
+            "path": "/permission/user-role",
+            "title": "用户角色分配"
+          }
+        ]
+      },
+      {
+        "icon": "user",
+        "path": "/user-setting/index",
+        "title": "用户设置",
+        "children": [
+          {
+            "path": "/user-setting/user-setting",
+            "title": "用户信息设置"
+          },
+          {
+            "path": "/user-setting/change-password",
+            "title": "修改密码"
+          }
+        ]
+      },
+      {
+        "icon": "cogs",
+        "path": "/sys-setting/index",
+        "title": "系统设置",
+        "children": [
+          {
+            "path": "/sys-setting/role",
+            "title": "系统初始设置"
+          },
+          {
+            "path": "/sys-setting/user-role",
+            "title": "系统风格设置"
+          }
+        ]
+      }
+    ]
+  }
+]

@@ -1,0 +1,10 @@
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/hicorp_segment?serverTimezone=GMT%2b8
+    username: root
+    password: Croot6227011
+    tomcat:
+      default-auto-commit: true
+logging:
+  file:
+    name: haier.log

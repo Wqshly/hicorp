@@ -1,0 +1,50 @@
+server:
+  port: 8080
+
+spring:
+  #  jackson:
+  #    date-format: yyyy-MM-dd HH:mm:ss
+  #    #格式化输出
+  #    serialization: true
+  #    #允许对象忽略json中不存在的属性
+  #    deserialization: false
+  #    #允许出现特殊字符、转义符、单引号等
+  #    parser: true
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    tomcat:
+      driver-class-name: com.mysql.cj.jdbc.Driver
+    platform: mysql
+    schema: classpath:schema.sql
+    data: classpath:data-mysql.sql
+    sql-script-encoding: utf-8
+    initialization-mode: always
+  devtools:
+    restart:
+      enabled: true
+  profiles:
+    active: prod
+  session:
+    timeout: 3600s
+
+mybatis:
+  mapper-locations: classpath*:mapper/*.xml
+  type-aliases-package: com.wqs.haier.pojo
+  configuration:
+    map-underscore-to-camel-case: true
+
+# 配置日志级别
+logging:
+  level:
+    root: info
+
+# 通用 mapper 配置
+mapper:
+  mappers: com.hicorp.segment.mapper.basic.BasicMapper
+  not-empty: false
+  identity: MYSQL
+
+# PageHelper 配置
+pagehelper:
+  reasonable: true
+  support-methods-arguments: true
