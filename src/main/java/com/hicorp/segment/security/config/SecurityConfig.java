@@ -1,8 +1,6 @@
 package com.hicorp.segment.security.config;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.hicorp.segment.mapper.LoginRecordMapper;
-import com.hicorp.segment.pojo.LoginRecord;
 import com.hicorp.segment.security.filter.MyFilterSecurityInterceptor;
 import com.hicorp.segment.security.services.UserDetailServiceImpl;
 import lombok.extern.slf4j.Slf4j;

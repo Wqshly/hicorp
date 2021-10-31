@@ -26,7 +26,7 @@ DROP TABLE IF EXISTS `hicorp_segment`.`user` ;
 CREATE TABLE IF NOT EXISTS `hicorp_segment`.`user` (
                                                        `id` BIGINT UNSIGNED NOT NULL AUTO_INCREMENT,
                                                        `user_name` VARCHAR(16) NOT NULL COMMENT 'User login account.',
-                                                       `password` VARCHAR(16) NOT NULL COMMENT 'User login password',
+                                                       `password` VARCHAR(255) NOT NULL COMMENT 'User login password',
                                                        `create_gmt` DATETIME NOT NULL COMMENT 'Record create time  (Use Greenwich Mean Time).',
                                                        `modified_gmt` DATETIME NOT NULL COMMENT 'Record modified time  (Use Greenwich Mean Time).',
                                                        PRIMARY KEY (`id`),
@@ -89,7 +89,7 @@ DROP TABLE IF EXISTS `hicorp_segment`.`menu` ;
 
 CREATE TABLE IF NOT EXISTS `hicorp_segment`.`menu` (
                                                        `id` BIGINT UNSIGNED NOT NULL AUTO_INCREMENT,
-                                                       `pid` BIGINT UNSIGNED NULL,
+                                                       `parent_id` BIGINT UNSIGNED NULL,
                                                        `menu_orders` INT NOT NULL,
                                                        `path` VARCHAR(255) NOT NULL,
                                                        `title` VARCHAR(45) NOT NULL,
@@ -97,9 +97,9 @@ CREATE TABLE IF NOT EXISTS `hicorp_segment`.`menu` (
                                                        `create_gmt` DATETIME NOT NULL,
                                                        `modified_gmt` DATETIME NULL,
                                                        PRIMARY KEY (`id`),
-                                                       INDEX `fk_menu_menu_idx` (`pid` ASC) VISIBLE,
+                                                       INDEX `fk_menu_menu_idx` (`parent_id` ASC) VISIBLE,
                                                        CONSTRAINT `fk_menu_menu1`
-                                                           FOREIGN KEY (`pid`)
+                                                           FOREIGN KEY (`parent_id`)
                                                                REFERENCES `hicorp_segment`.`menu` (`id`)
                                                                ON DELETE NO ACTION
                                                                ON UPDATE NO ACTION)
@@ -185,7 +185,7 @@ CREATE TABLE IF NOT EXISTS `hicorp_segment`.`material_data` (
                                                                 `name` VARCHAR(45) NOT NULL,
                                                                 `type` ENUM('自制件', '原材料', '零配件') NOT NULL,
                                                                 `spec` VARCHAR(45) NULL COMMENT '规格',
-                                                                `safty_stock` VARCHAR(45) NULL COMMENT '安全库存',
+                                                                `safety_stock` VARCHAR(45) NULL COMMENT '安全库存',
                                                                 `create_user` VARCHAR(45) NOT NULL,
                                                                 `create_gmt` DATETIME NOT NULL,
                                                                 `modified_user` VARCHAR(45) NULL,

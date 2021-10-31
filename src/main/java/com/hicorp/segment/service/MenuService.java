@@ -13,6 +13,7 @@ import java.util.List;
  * @Modified_By:
  */
 public interface MenuService extends BasicInterface<Menu> {
+
     void dataSave(List<Menu> menus);
 
     ResultBean<List<Menu>> getAllMenuTree();

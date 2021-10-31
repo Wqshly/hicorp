@@ -1,10 +1,6 @@
 package com.hicorp.segment.security.services;
 
-import com.hicorp.segment.mapper.MenuMapper;
-import com.hicorp.segment.mapper.PermissionMapper;
-import com.hicorp.segment.mapper.UserInfoMapper;
 import com.hicorp.segment.mapper.UserMapper;
-import com.hicorp.segment.pojo.*;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;

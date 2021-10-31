@@ -2,10 +2,8 @@ package com.hicorp.segment.utils;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.google.common.collect.Maps;
-import com.hicorp.segment.mapper.PermissionMapper;
-import com.hicorp.segment.service.MenuService;
 import com.hicorp.segment.pojo.Menu;
-import com.hicorp.segment.pojo.Permission;
+import com.hicorp.segment.service.MenuService;
 import io.swagger.models.HttpMethod;
 import io.swagger.models.Operation;
 import io.swagger.models.Path;
@@ -21,6 +19,7 @@ import springfox.documentation.swagger2.mappers.ServiceModelToSwagger2Mapper;
 import tk.mybatis.mapper.entity.Example;
 
 import javax.annotation.Resource;
+import java.security.Permission;
 import java.util.*;
 
 /**

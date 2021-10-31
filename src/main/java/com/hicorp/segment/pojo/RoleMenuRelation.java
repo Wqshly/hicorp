@@ -4,6 +4,7 @@ import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.io.Serial;
 import java.io.Serializable;
 import java.util.Date;
@@ -31,27 +32,32 @@ public class RoleMenuRelation implements Serializable {
     @Column(name = "menu_id")
     private Long menuId;
 
-    @Column(name = "create_user")
+    @Column(name = "create_user", columnDefinition = "varchar(45)", length = 45, nullable = false)
+    @Schema(name = "创建人", example = "王五")
     private String createUser;
 
     @Temporal(TemporalType.TIMESTAMP)
-    @Column(name = "gmt_create", columnDefinition = "datetime", nullable = false)
-    private Date gmtCreate;
+    @NotNull(message = "创建时间不能为空!")
+    @Column(name = "create_gmt", columnDefinition = "datetime", nullable = false)
+    @Schema(name = "创建时间", example = "2021-11-01 08:00")
+    private Date createGmt;
 
-    @Column(name = "modified_user")
+    @Column(name = "modified_user", columnDefinition = "varchar(45)", length = 45)
+    @Schema(name = "修改人", example = "张三")
     private String modifiedUser;
 
     @Temporal(TemporalType.TIMESTAMP)
-    @Column(name = "gmt_modified", columnDefinition = "datetime")
-    private Date gmtModified;
+    @Column(name = "modified_gmt", columnDefinition = "datetime")
+    @Schema(name = "创建时间", example = "2021-11-01 08:00")
+    private Date modifiedGmt;
 
     @Serial
     private static final long serialVersionUID = 1L;
 
-    public RoleMenuRelation(Long roleId, Long menuId, String createUser, Date gmtCreate) {
+    public RoleMenuRelation(Long roleId, Long menuId, String createUser, Date createGmt) {
         this.roleId = roleId;
         this.menuId = menuId;
         this.createUser = createUser;
-        this.gmtCreate = gmtCreate;
+        this.createGmt = createGmt;
     }
 }

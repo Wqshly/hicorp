@@ -1,10 +1,9 @@
 package com.hicorp.segment.pojo;
 
+import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
 
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.io.Serial;
 import java.io.Serializable;
 import java.util.*;
@@ -26,19 +25,35 @@ public class Menu implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY, generator = "JDBC")
     private Long id;
 
+    @Column(name = "parent_id", columnDefinition = "bigint", nullable = false)
+    @Schema(name = "父菜单id", example = "1")
     private Long parentId;
 
+    @Column(name = "menu_orders", columnDefinition = "int", length = 45, nullable = false)
+    @Schema(name = "菜单顺序", example = "1")
     private Integer menuOrders;
 
+    @Column(name = "path", columnDefinition = "varchar(255)", length = 45, nullable = false)
+    @Schema(name = "前端route路径", example = "/basicData/department")
     private String path;
 
+    @Column(name = "title", columnDefinition = "varchar(45)", length = 45, nullable = false)
+    @Schema(name = "菜单名", example = "部门管理")
     private String title;
 
+    @Column(name = "icon", columnDefinition = "varchar(45)", length = 45)
+    @Schema(name = "菜单图标", example = "users-cog")
     private String icon;
 
-    private Date gmtCreate;
+    @Temporal(TemporalType.TIMESTAMP)
+    @Column(name = "create_gmt", columnDefinition = "datetime")
+    @Schema(name = "创建时间", example = "2021-11-01 08:00")
+    private Date createGmt;
 
-    private Date gmtModified;
+    @Temporal(TemporalType.TIMESTAMP)
+    @Column(name = "modified_gmt", columnDefinition = "datetime")
+    @Schema(name = "修改时间", example = "2021-11-01 08:00")
+    private Date modifiedGmt;
 
     private List<Menu> children;
 

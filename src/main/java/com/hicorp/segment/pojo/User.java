@@ -1,5 +1,6 @@
 package com.hicorp.segment.pojo;
 
+import io.swagger.annotations.ApiModel;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
 
@@ -14,8 +15,7 @@ import java.util.Date;
  * @author
  */
 @Data
-@Entity
-@Schema(name = "com.wqs.haier.pojo.User", description = "用户实体类")
+@ApiModel(value = "com.hicorp.segment.pojo.User", description = "用户(用于登录)的实体类")
 public class User implements Serializable {
 
     @Serial
@@ -28,7 +28,7 @@ public class User implements Serializable {
     private Long id;
 
     @Column(name = "user_name", columnDefinition = "varchar(45)", length = 45, nullable = false)
-    @Schema(name = "外键，用户名", example = "root")
+    @Schema(name = "用户名", example = "root")
     private String userName;
 
     @Column(name = "password", columnDefinition = "varchar(255)", nullable = false)
@@ -36,10 +36,13 @@ public class User implements Serializable {
     private String password;
 
     @Temporal(TemporalType.TIMESTAMP)
-    @Column(name = "gmt_create", columnDefinition = "datetime", nullable = false)
-    private Date gmtCreate;
+    @Column(name = "create_gmt", columnDefinition = "datetime", nullable = false)
+    private Date createGmt;
+
+    @Column(name = "modified_user", columnDefinition = "varchar(45)")
+    private String modifiedUser;
 
     @Temporal(TemporalType.TIMESTAMP)
-    @Column(name = "gmt_modified", columnDefinition = "datetime")
-    private Date gmtModified;
+    @Column(name = "modified_gmt", columnDefinition = "datetime")
+    private Date modifiedGmt;
 }
