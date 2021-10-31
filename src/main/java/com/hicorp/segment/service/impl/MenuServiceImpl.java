@@ -64,11 +64,11 @@ public class MenuServiceImpl extends BasicInterfaceImpl<Menu> implements MenuSer
             newMenu.setMenuOrders(menuOrders);
             if (oldMenuMap.containsKey(newMenu.getPath())) { // 更新
                 newMenu.setId(oldMenuMap.get(newMenu.getPath()));
-                newMenu.setGmtModified(date);
+                newMenu.setModifiedGmt(date);
                 menuMapper.updateByPrimaryKeySelective(newMenu);
                 deleteMenuIdsMap.remove(newMenu.getId());
             } else { // 新增
-                newMenu.setGmtCreate(date);
+                newMenu.setCreateGmt(date);
                 menuMapper.insert(newMenu);
             }
             Long id = newMenu.getId();
