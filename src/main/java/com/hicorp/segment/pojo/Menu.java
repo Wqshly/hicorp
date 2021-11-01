@@ -1,5 +1,6 @@
 package com.hicorp.segment.pojo;
 
+import io.swagger.annotations.ApiModel;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
 
@@ -16,6 +17,7 @@ import java.util.*;
  * @Modified_By:
  */
 @Data
+@ApiModel(value = "com.hicorp.segment.pojo.Menu", description = "菜单实体类")
 public class Menu implements Serializable {
 
     @Serial

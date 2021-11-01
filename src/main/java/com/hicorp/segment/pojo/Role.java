@@ -56,6 +56,6 @@ public class Role implements Serializable {
 
     @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "modified_gmt", columnDefinition = "datetime")
-    @Schema(name = "创建时间", example = "2021-11-01 08:00")
+    @Schema(name = "修改时间", example = "2021-11-01 08:00")
     private Date modifiedGmt;
 }

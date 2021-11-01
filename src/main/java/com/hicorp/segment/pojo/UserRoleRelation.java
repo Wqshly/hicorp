@@ -48,4 +48,11 @@ public class UserRoleRelation implements Serializable {
     @Column(name = "modified_gmt", columnDefinition = "datetime")
     @Schema(name = "修改时间", example = "2021-11-01 08:00")
     private Date modifiedGmt;
+
+    public UserRoleRelation(Long userId, Long roleId, String createUser, Date createGmt) {
+        this.userId = userId;
+        this.roleId = roleId;
+        this.createUser = createUser;
+        this.createGmt = createGmt;
+    }
 }
