@@ -2,7 +2,9 @@ package com.hicorp.segment.utils;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.google.common.collect.Maps;
+import com.hicorp.segment.mapper.PermissionMapper;
 import com.hicorp.segment.pojo.Menu;
+import com.hicorp.segment.pojo.Permission;
 import com.hicorp.segment.service.MenuService;
 import io.swagger.models.HttpMethod;
 import io.swagger.models.Operation;
@@ -19,7 +21,6 @@ import springfox.documentation.swagger2.mappers.ServiceModelToSwagger2Mapper;
 import tk.mybatis.mapper.entity.Example;
 
 import javax.annotation.Resource;
-import java.security.Permission;
 import java.util.*;
 
 /**
@@ -34,8 +35,8 @@ import java.util.*;
 @Slf4j
 public class InitMethod implements CommandLineRunner {
 
-//    @Resource
-//    private PermissionMapper permissionMapper;
+    @Resource
+    private PermissionMapper permissionMapper;
 
     private final MenuService menuService;
     private final DocumentationCache documentationCache;
@@ -49,35 +50,35 @@ public class InitMethod implements CommandLineRunner {
     }
 
     // 初始化 permission 表数据
-//    public void initPermission() {
-//        // 加载已有的api
-//        Map<String, Boolean> apiMap = Maps.newHashMap();
-//        List<Permission> apis = permissionMapper.selectAll();
-//        List<String> compareApis = new ArrayList<>();
-//        Date date = new Date();
-//        apis.forEach(api -> {
-//            apiMap.put(api.getApiPath() + api.getMethod(), true);
-//        });
-//        // 获取swagger
-//        String groupName = Optional.of("all_api").orElse(Docket.DEFAULT_GROUP_NAME);
-//        Documentation documentation = documentationCache.documentationByGroup(groupName);
-//        if (documentation == null) {
-//            return;
-//        }
-//        Swagger swagger = mapper.mapDocumentation(documentation);
-//        // 加载到数据库
-//        for (Map.Entry<String, Path> item : swagger.getPaths().entrySet()) {
-//            String path = item.getKey();
-//            String realPath = getRealPath(path);
-//            compareApis.add(realPath);
-//            Path pathInfo = item.getValue();
-//            createApiIfNeeded(apiMap, realPath, pathInfo.getGet(), HttpMethod.GET.name(), date);
-//            createApiIfNeeded(apiMap, realPath, pathInfo.getPost(), HttpMethod.POST.name(), date);
-//            createApiIfNeeded(apiMap, realPath, pathInfo.getDelete(), HttpMethod.DELETE.name(), date);
-//            createApiIfNeeded(apiMap, realPath, pathInfo.getPut(), HttpMethod.PUT.name(), date);
-//        }
-//        deleteApiIfDeprecated(apis, compareApis);
-//    }
+    public void initPermission() {
+        // 加载已有的api
+        Map<String, Boolean> apiMap = Maps.newHashMap();
+        List<Permission> apis = permissionMapper.selectAll();
+        List<String> compareApis = new ArrayList<>();
+        Date date = new Date();
+        apis.forEach(api -> {
+            apiMap.put(api.getApiPath() + api.getMethod(), true);
+        });
+        // 获取swagger
+        String groupName = Optional.of("all_api").orElse(Docket.DEFAULT_GROUP_NAME);
+        Documentation documentation = documentationCache.documentationByGroup(groupName);
+        if (documentation == null) {
+            return;
+        }
+        Swagger swagger = mapper.mapDocumentation(documentation);
+        // 加载到数据库
+        for (Map.Entry<String, Path> item : swagger.getPaths().entrySet()) {
+            String path = item.getKey();
+            String realPath = getRealPath(path);
+            compareApis.add(realPath);
+            Path pathInfo = item.getValue();
+            createApiIfNeeded(apiMap, realPath, pathInfo.getGet(), HttpMethod.GET.name(), date);
+            createApiIfNeeded(apiMap, realPath, pathInfo.getPost(), HttpMethod.POST.name(), date);
+            createApiIfNeeded(apiMap, realPath, pathInfo.getDelete(), HttpMethod.DELETE.name(), date);
+            createApiIfNeeded(apiMap, realPath, pathInfo.getPut(), HttpMethod.PUT.name(), date);
+        }
+        deleteApiIfDeprecated(apis, compareApis);
+    }
 
     // 初始化 menu 表数据
     public void initMenu(String fileName) {
@@ -99,22 +100,22 @@ public class InitMethod implements CommandLineRunner {
         return realApiPath;
     }
     // 添加 API 至数据库
-//    private void createApiIfNeeded(Map<String, Boolean> apiMap, String apiPath, Operation operation, String method, Date currentTime) {
-//        if (operation == null) {
-//            return;
-//        }
-//        if (!apiMap.containsKey(apiPath + method)) {
-//            Permission permission = new Permission(operation.getTags().get(0), method, apiPath, operation.getOperationId(), operation.getSummary(), operation.getDescription());
-//            // 已有的api不再存入，没有的存入
-//            permission.setGmtCreate(currentTime);
-//            permissionMapper.insert(permission);
-//            apiMap.put(apiPath + method, true);
-//        } else if (apiMap.containsKey(apiPath + method)) {
-//            Permission permission = new Permission(operation.getTags().get(0), method, apiPath, operation.getOperationId(), operation.getSummary(), operation.getDescription());
-//            permission.setGmtModified(currentTime);
-//            permissionMapper.updateByPrimaryKey(permission);
-//        }
-//    }
+    private void createApiIfNeeded(Map<String, Boolean> apiMap, String apiPath, Operation operation, String method, Date currentTime) {
+        if (operation == null) {
+            return;
+        }
+        if (!apiMap.containsKey(apiPath + method)) {
+            Permission permission = new Permission(operation.getTags().get(0), method, apiPath, operation.getOperationId(), operation.getSummary(), operation.getDescription());
+            // 已有的api不再存入，没有的存入
+            permission.setCreateGmt(currentTime);
+            permissionMapper.insert(permission);
+            apiMap.put(apiPath + method, true);
+        } else if (apiMap.containsKey(apiPath + method)) {
+            Permission permission = new Permission(operation.getTags().get(0), method, apiPath, operation.getOperationId(), operation.getSummary(), operation.getDescription());
+            permission.setModifiedGmt(currentTime);
+            permissionMapper.updateByPrimaryKey(permission);
+        }
+    }
 
     // 删除调已经作废的 API
     private void deleteApiIfDeprecated(List<Permission> permissions, List<String> compareApis) {
