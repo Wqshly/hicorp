@@ -91,8 +91,8 @@ public class InitMethod implements CommandLineRunner {
 
     private String getRealPath(String path) {
         String realApiPath = path;
-        if (path.startsWith("/haier")) {
-            realApiPath = path.substring(6);
+        if (path.startsWith("/hicorp_segment")) {
+            realApiPath = path.substring(15);
         }
 //        if (path.startsWith("/department")) {
 //            realApiPath = path.substring(11);

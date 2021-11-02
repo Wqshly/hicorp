@@ -43,11 +43,6 @@ public class LoginRecord implements Serializable {
     @Schema(name = "创建时间", example = "2021-11-01 08:00")
     private Date createGmt;
 
-    @Temporal(TemporalType.TIMESTAMP)
-    @Column(name = "modified_gmt", columnDefinition = "datetime")
-    @Schema(name = "修改时间", example = "2021-11-01 08:00")
-    private Date modifiedGmt;
-
     public LoginRecord(String userName, Boolean isLogout, String remoteAddress, Date createGmt) {
         this.userName = userName;
         this.isLogout = isLogout;

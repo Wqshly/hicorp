@@ -649,7 +649,22 @@
       {
         "icon": "cogs",
         "path": "/sys-setting/index",
-        "title": "系统设置",
+        "title": "系统控制",
+        "children": [
+          {
+            "path": "/sys-setting/role",
+            "title": "系统初始设置"
+          },
+          {
+            "path": "/sys-setting/user-role",
+            "title": "系统风格设置"
+          }
+        ]
+      },
+      {
+        "icon": "cogs",
+        "path": "/sys-setting/index",
+        "title": "用户与系统控制",
         "children": [
           {
             "path": "/sys-setting/role",
