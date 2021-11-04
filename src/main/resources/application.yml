@@ -15,8 +15,8 @@ spring:
     tomcat:
       driver-class-name: com.mysql.cj.jdbc.Driver
     platform: mysql
-#    schema: classpath:schema.sql
-#    data: classpath:data-mysql.sql
+    schema: classpath:schema.sql
+    data: classpath:data-mysql.sql
     sql-script-encoding: utf-8
     initialization-mode: always
   devtools:
