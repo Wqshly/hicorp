@@ -10,145 +10,159 @@
         "title": "首页"
       },
       {
-        "icon": "users-cog",
-        "path": "/employment/index",
-        "title": "生产用人",
+        "icon": "cogs",
+        "path": "/system/index",
+        "title": "用户与系统控制",
         "children": [
           {
-            "path": "/employment/department",
-            "title": "部门管理"
+            "path": "/system/role",
+            "title": "角色功能管理"
           },
           {
-            "path": "/employment/work-type",
-            "title": "工种管理"
+            "path": "/system/user-role",
+            "title": "用户角色分配"
           },
           {
-            "path": "/employment/internal-staff",
-            "title": "内部员工管理"
+            "path": "/system/register",
+            "title": "用户注册"
           },
           {
-            "path": "/employment/contract-team",
-            "title": "承包队管理"
+            "path": "/system/user-setting",
+            "title": "用户信息设置"
           },
           {
-            "path": "/employment/external-staff",
-            "title": "外部员工管理"
-          }
-        ]
-      },
-      {
-        "icon": "house-user",
-        "path": "/production/index",
-        "title": "生产空间",
-        "children": [
-          {
-            "path": "/production/organization-setup",
-            "title": "组织设置"
+            "path": "/system/approval-process",
+            "title": "审批流程定义"
           },
           {
-            "path": "/production/plant-maintenance",
-            "title": "工厂维护"
+            "path": "/system/change-password",
+            "title": "修改密码"
           },
           {
-            "path": "/production/workshop",
-            "title": "车间"
-          },
-          {
-            "path": "/production/production-line",
-            "title": "生产线"
-          },
-          {
-            "path": "/production/station-category",
-            "title": "工位类别"
-          },
-          {
-            "path": "/production/station",
-            "title": "工位"
-          },
-          {
-            "path": "/production/warehouse-category",
-            "title": "仓库类别"
-          },
-          {
-            "path": "/production/warehouse",
-            "title": "仓库"
-          },
-          {
-            "path": "/production/warehouse-location-maintenance",
-            "title": "仓库库位维护"
-          },
-          {
-            "path": "/production/steam-curing-kiln",
-            "title": "蒸养窑"
-          },
-          {
-            "path": "/production/water-pond",
-            "title": "水养池"
-          },
-          {
-            "path": "/production/sensor-maintenance",
-            "title": "传感器维护"
+            "path": "/system/configuration",
+            "title": "系统配置"
           }
         ]
       },
       {
         "icon": "wrench",
-        "path": "/tools/index",
-        "title": "生产用具",
+        "path": "/data/index",
+        "title": "数据字典",
         "children": [
           {
-            "path": "/tools/vehicle-account",
+            "path": "/data/department",
+            "title": "部门管理"
+          },
+          {
+            "path": "/data/work-type",
+            "title": "工种管理"
+          },
+          {
+            "path": "/data/internal-staff",
+            "title": "内部员工管理"
+          },
+          {
+            "path": "/data/contract-team",
+            "title": "承包队管理"
+          },
+          {
+            "path": "/data/external-staff",
+            "title": "外部员工管理"
+          },
+          {
+            "path": "/data/organization-setup",
+            "title": "组织设置"
+          },
+          {
+            "path": "/data/plant-maintenance",
+            "title": "工厂维护"
+          },
+          {
+            "path": "/data/workshop",
+            "title": "车间"
+          },
+          {
+            "path": "/data/production-line",
+            "title": "生产线"
+          },
+          {
+            "path": "/data/station-category",
+            "title": "工位类别"
+          },
+          {
+            "path": "/data/station",
+            "title": "工位"
+          },
+          {
+            "path": "/data/warehouse-category",
+            "title": "仓库类别"
+          },
+          {
+            "path": "/data/warehouse",
+            "title": "仓库"
+          },
+          {
+            "path": "/data/warehouse-location-maintenance",
+            "title": "仓库库位维护"
+          },
+          {
+            "path": "/data/steam-curing-kiln",
+            "title": "蒸养窑"
+          },
+          {
+            "path": "/data/water-pond",
+            "title": "水养池"
+          },
+          {
+            "path": "/data/sensor-maintenance",
+            "title": "传感器维护"
+          },
+          {
+            "path": "/data/vehicle-account",
             "title": "车辆台账"
           },
           {
-            "path": "/tools/vehicle-positioning-management",
+            "path": "/data/vehicle-positioning-management",
             "title": "车辆定位管理"
           },
           {
-            "path": "/tools/mold-category",
+            "path": "/data/mold-category",
             "title": "模具类别"
           },
           {
-            "path": "/tools/mould",
+            "path": "/data/mould",
             "title": "模具"
           },
           {
-            "path": "/tools/tool-category",
+            "path": "/data/tool-category",
             "title": "工具类别"
           },
           {
-            "path": "/tools/tool",
+            "path": "/data/tool",
             "title": "工具"
-          }
-        ]
-      },
-      {
-        "icon": "industry",
-        "path": "/materials/index",
-        "title": "生产用料",
-        "children": [
+          },
           {
-            "path": "/materials/category-of-purchased-materials",
+            "path": "/data/category-of-purchased-materials",
             "title": "外购物料类别"
           },
           {
-            "path": "/materials/steel-products",
+            "path": "/data/steel-products",
             "title": "钢材"
           },
           {
-            "path": "/materials/concrete-raw-materials",
+            "path": "/data/concrete-raw-materials",
             "title": "混凝土原材料"
           },
           {
-            "path": "/materials/spare-parts",
+            "path": "/data/spare-parts",
             "title": "零配件"
           },
           {
-            "path": "/materials/auxiliary-materials",
+            "path": "/data/auxiliary-materials",
             "title": "辅料辅材"
           },
           {
-            "path": "/materials/material-coding-rules",
+            "path": "/data/material-coding-rules",
             "title": "物料编码规则"
           }
         ]
@@ -189,17 +203,13 @@
           {
             "path": "/device/device-monitoring",
             "title": "设备运行状态物联网采集监控"
-          },
-          {
-            "path": "/device/vehicle-category",
-            "title": "车辆类别"
           }
         ]
       },
       {
         "icon": "atom",
         "path": "/technology/index",
-        "title": "生产技术",
+        "title": "技术管理",
         "children": [
           {
             "path": "/technology/homemade-category",
@@ -280,24 +290,40 @@
         "title": "生产计划管理",
         "children": [
           {
-            "path": "/plans/complementary-ring-order",
-            "title": "补环订单编制"
+            "path": "/plan/production-plan",
+            "title": "生产计划编制"
+          },
+          {
+            "path": "/plans/complementary-order-plan",
+            "title": "补环生产计划编制"
           },
           {
             "path": "/plans/patch-order-plan",
             "title": "补片生产计划编制"
           },
           {
-            "path": "/plans/mrp-expansion",
-            "title": "订单生产任务MRP展开"
+            "path": "/plan/annual-production-plan",
+            "title": "年度生产计划"
           },
           {
-            "path": "/plans/ring-code-auto",
-            "title": "环号自动生成"
+            "path": "/plan/quarterly-production-plan",
+            "title": "季度生产计划"
           },
           {
-            "path": "/plans/patch-code-auto",
-            "title": "管片批号自动生成"
+            "path": "/plan/monthly-production-plan",
+            "title": "月度生产计划"
+          },
+          {
+            "path": "/plan/weekly-production-plan",
+            "title": "周生产计划"
+          },
+          {
+            "path": "/plan/daily-production-plan",
+            "title": "当日生产计划"
+          },
+          {
+            "path": "/plan/daily-segment-production-plan",
+            "title": "日管片生产计划编制"
           },
           {
             "path": "/plans/pending-patch-data",
@@ -590,89 +616,6 @@
           {
             "path": "/quality/retrospectively",
             "title": "质量追溯"
-          }
-        ]
-      },
-      {
-        "icon": "chart-line",
-        "path": "/core/index",
-        "title": "核心图表",
-        "children": [
-          {
-            "path": "/core/basic",
-            "title": "基础图表展示"
-          },
-          {
-            "path": "/core/center",
-            "title": "中控图表(普通展示)"
-          },
-          {
-            "path": "/core/prod-line",
-            "title": "产线图表(雷达图等)"
-          },
-          {
-            "path": "/core/reinforcement-cage",
-            "title": "钢筋笼图表(特殊图表)"
-          }
-        ]
-      },
-      {
-        "icon": "award",
-        "path": "/permission/index",
-        "title": "权限管理",
-        "children": [
-          {
-            "path": "/permission/role",
-            "title": "角色管理"
-          },
-          {
-            "path": "/permission/user-role",
-            "title": "用户角色分配"
-          }
-        ]
-      },
-      {
-        "icon": "user",
-        "path": "/user-setting/index",
-        "title": "用户设置",
-        "children": [
-          {
-            "path": "/user-setting/user-setting",
-            "title": "用户信息设置"
-          },
-          {
-            "path": "/user-setting/change-password",
-            "title": "修改密码"
-          }
-        ]
-      },
-      {
-        "icon": "cogs",
-        "path": "/sys-setting/index",
-        "title": "系统控制",
-        "children": [
-          {
-            "path": "/sys-setting/role",
-            "title": "系统初始设置"
-          },
-          {
-            "path": "/sys-setting/user-role",
-            "title": "系统风格设置"
-          }
-        ]
-      },
-      {
-        "icon": "cogs",
-        "path": "/sys-setting/index",
-        "title": "用户与系统控制",
-        "children": [
-          {
-            "path": "/sys-setting/role",
-            "title": "系统初始设置"
-          },
-          {
-            "path": "/sys-setting/user-role",
-            "title": "系统风格设置"
           }
         ]
       }
