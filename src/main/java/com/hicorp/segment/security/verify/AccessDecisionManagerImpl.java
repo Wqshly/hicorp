@@ -72,11 +72,6 @@ public class AccessDecisionManagerImpl implements AccessDecisionManager {
                 if (matcher.matches(request)) {
                     return;
                 }
-                //未登录允许访问 修改密码 接口
-                matcher = new AntPathRequestMatcher("/user/setPassword/list");
-                if (matcher.matches(request)) {
-                    return;
-                }
 
             }
 
