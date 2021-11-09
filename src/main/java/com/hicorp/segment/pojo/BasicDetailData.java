@@ -10,8 +10,8 @@ import java.io.Serializable;
 import java.util.Date;
 
 @Data
-@ApiModel(value = "com.hicorp.segment.pojo.BasicData", description = "基础数据实体类3")
-public class BasicData implements Serializable {
+@ApiModel(value = "com.hicorp.segment.pojo.BasicDetailData", description = "基础数据实体类2")
+public class BasicDetailData implements Serializable {
 
     @Serial
     private static final long serialVersionUID = 1L;
