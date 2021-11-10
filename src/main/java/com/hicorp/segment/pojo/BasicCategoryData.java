@@ -10,8 +10,8 @@ import java.io.Serializable;
 import java.util.Date;
 
 @Data
-@ApiModel(value = "com.hicorp.segment.pojo.BasicData", description = "基础数据实体类3")
-public class BasicData implements Serializable {
+@ApiModel(value = "com.hicorp.segment.pojo.BasicCategoryData", description = "基础数据实体类1")
+public class BasicCategoryData implements Serializable {
 
     @Serial
     private static final long serialVersionUID = 1L;
@@ -21,11 +21,11 @@ public class BasicData implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "category_number", columnDefinition = "varchar(45)", length = 45, nullable = false)
+    @Column(name = "number", columnDefinition = "varchar(45)", length = 45, nullable = false)
     @Schema(name = "类别编号", example = "GW100001")
     private String categoryNumber;
 
-    @Column(name = "category_number", columnDefinition = "varchar(45)", length = 45, nullable = false)
+    @Column(name = "number", columnDefinition = "varchar(45)", length = 45, nullable = false)
     @Schema(name = "类别名", example = "GW100001")
     private String categoryName;
 

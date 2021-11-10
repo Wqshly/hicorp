@@ -1,8 +1,10 @@
 package com.hicorp.segment.security.services;
 
 import com.hicorp.segment.mapper.MenuMapper;
+import com.hicorp.segment.mapper.PermissionMapper;
 import com.hicorp.segment.mapper.UserMapper;
 import com.hicorp.segment.pojo.Menu;
+import com.hicorp.segment.pojo.Permission;
 import com.hicorp.segment.pojo.User;
 import com.hicorp.segment.pojo.UserForSecurity;
 import org.springframework.security.core.GrantedAuthority;
@@ -30,7 +32,13 @@ public class UserDetailServiceImpl implements UserDetailsService {
     private UserMapper userMapper;
 
     @Resource
+    private PermissionMapper permissionMapper;
+
+    @Resource
     private MenuMapper menuMapper;
+
+//    @Resource
+//    private UserInfoMapper userInfoMapper;
 
     @Override
     public UserDetails loadUserByUsername(String s) throws UsernameNotFoundException {
@@ -43,26 +51,26 @@ public class UserDetailServiceImpl implements UserDetailsService {
 
 
         List<Menu> menuList;
-//        List<Permission> permissions;
+        List<Permission> permissions;
         if (user.getId() == 1) {
             menuList = menuMapper.selectAll();
-//            permissions = permissionMapper.selectAll();
+            permissions = permissionMapper.selectAll();
         } else {
             menuList = menuMapper.selectByUserId(user.getId());
-//            permissions = permissionMapper.findPermissionByUserId(user.getId());
+            permissions = permissionMapper.findPermissionByUserId(user.getId());
         }
 //        menuMapper.select
         List<GrantedAuthority> grantedAuthorities = new ArrayList<>();
 
         if (CollectionUtils.isEmpty(grantedAuthorities)) {
-//            permissions.forEach(p -> {
-//                if (p != null && p.getSummary() != null) {
-//                    // 将权限信息添加到 GrantedAuthority 对象中，在后面权限验证时会使用 GrantedAuthority 对象。
-//                    // 如无特殊需求，请选择设置了 unique 属性的列！！！
-//                    GrantedAuthority grantedAuthority = new GrantedAuthorityImpl(p.getApiPath(), p.getMethod());
-//                    grantedAuthorities.add(grantedAuthority);
-//                }
-//            });
+            permissions.forEach(p -> {
+                if (p != null && p.getSummary() != null) {
+                    // 将权限信息添加到 GrantedAuthority 对象中，在后面权限验证时会使用 GrantedAuthority 对象。
+                    // 如无特殊需求，请选择设置了 unique 属性的列！！！
+                    GrantedAuthority grantedAuthority = new GrantedAuthorityImpl(p.getApiPath(), p.getMethod());
+                    grantedAuthorities.add(grantedAuthority);
+                }
+            });
         }
         List<Menu> menus = new Menu().generateTree(menuList);
 //        UserInfo userInfo = userInfoMapper.findByStaffNumber(s);

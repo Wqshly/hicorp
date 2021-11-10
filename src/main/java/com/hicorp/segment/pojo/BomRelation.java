@@ -13,7 +13,7 @@ import java.util.Date;
 
 @Data
 @ApiModel(value = "com.hicorp.segment.pojo.MaterialRelation", description = "物料关系实体类(BOM子表)")
-public class MaterialRelation implements Serializable {
+public class BomRelation implements Serializable {
 
     @Serial
     private static final long serialVersionUID = 1L;

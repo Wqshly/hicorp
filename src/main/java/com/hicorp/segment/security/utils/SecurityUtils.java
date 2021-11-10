@@ -10,7 +10,7 @@ import org.springframework.stereotype.Component;
  * @Author: wqs
  * @Date: Created in 17:09 2021/5/29
  * @Description:
- * @ChineseDescription:
+ * @ChineseDescription: 该类用于读取当前登录的用户的相关信息
  * @Modified_By:
  */
 @Component
