@@ -45,12 +45,12 @@ public class BasicInterfaceImpl<T> implements BasicInterface<T> {
         Type type = this.getClass().getGenericSuperclass();
         //强转，才可以使用合适的方法
         ParameterizedType pType = (ParameterizedType) type;
-        //获取父类的泛型类型\
+        //获取父类的泛型类型
         this.clazz = (Class<T>) pType.getActualTypeArguments()[0];
     }
 
     @Override
-    @Transactional(rollbackFor = Exception.class)   //回滚
+    @Transactional(rollbackFor = Exception.class)   //事务回滚
     public ResultBean<Integer> createRecord(T data) {
         Assert.notNull(data, data.getClass().getName() + "传入数据不能为空!");
         this.dataValid(data);
