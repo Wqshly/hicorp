@@ -11,6 +11,6 @@ import org.springframework.stereotype.Service;
  * @ChineseDescription:
  * @Modified_By:
  */
-@Service("BasicCategoryDataService")
+@Service("basicCategoryDataService")
 public class BasicCategoryDataServiceImpl extends BasicInterfaceImpl<BasicCategoryData> implements BasicCategoryDataService {
 }

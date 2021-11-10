@@ -23,7 +23,7 @@ import java.util.List;
  * @ChineseDescription:
  * @Modified_By:
  */
-@Service("RoleMenuRelationService")
+@Service("roleMenuRelationService")
 @Slf4j
 public class RoleMenuRelationServiceImpl extends BasicInterfaceImpl<RoleMenuRelation> implements RoleMenuRelationService {
     @Resource

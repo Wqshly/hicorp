@@ -19,7 +19,7 @@ import java.util.Map;
  * @ChineseDescription:
  * @Modified_By:
  */
-@Service("MenuService")
+@Service("menuService")
 public class MenuServiceImpl extends BasicInterfaceImpl<Menu> implements MenuService {
     @Resource
     private MenuMapper menuMapper;
