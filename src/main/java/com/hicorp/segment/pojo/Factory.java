@@ -10,8 +10,8 @@ import java.io.Serializable;
 import java.util.Date;
 
 @Data
-@ApiModel(value = "com.hicorp.segment.pojo.BasicDetailData", description = "基础数据实体类2")
-public class BasicDetailData implements Serializable {
+@ApiModel(value = "com.hicorp.segment.pojo.Factory", description = "工厂实体类")
+public class Factory implements Serializable {
 
     @Serial
     private static final long serialVersionUID = 1L;
@@ -21,29 +21,29 @@ public class BasicDetailData implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(name = "name", columnDefinition = "varchar(55)", length = 55, nullable = false)
+    @Schema(name = "名称", example = "青岛一厂")
+    private String name;
+
     @Column(name = "number", columnDefinition = "varchar(45)", length = 45, nullable = false)
     @Schema(name = "编号", example = "GW100001")
     private String number;
 
-    @Column(name = "name", columnDefinition = "varchar(45)", length = 45, nullable = false)
-    @Schema(name = "名称", example = "组织部")
-    private String name;
+    @Column(name = "address", columnDefinition = "varchar(255)", nullable = false)
+    @Schema(name = "地址", example = "GW100001")
+    private String address;
 
-    @Column(name = "category_number", columnDefinition = "varchar(45)", length = 45, nullable = false)
-    @Schema(name = "类别编号", example = "GW100001")
-    private String categoryNumber;
+    @Column(name = "legal_person", columnDefinition = "varchar(45)", length = 45, nullable = false)
+    @Schema(name = "法人", example = "GW100001")
+    private String legalPerson;
 
-    @Column(name = "category_number", columnDefinition = "varchar(45)", length = 45, nullable = false)
-    @Schema(name = "类别名", example = "GW100001")
-    private String categoryName;
+    @Column(name = "zip_code", columnDefinition = "varchar(255)", nullable = false)
+    @Schema(name = "邮编", example = "这是一条描述信息")
+    private String zipCode;
 
-    @Column(name = "description", columnDefinition = "varchar(255)", nullable = false)
-    @Schema(name = "描述", example = "这是一条描述信息")
-    private String description;
-
-    @Column(name = "type", columnDefinition = "varchar(45)", length = 45, nullable = false)
-    @Schema(name = "分类", example = "岗位")
-    private String type;
+    @Column(name = "phone_number", columnDefinition = "varchar(45)", length = 45, nullable = false)
+    @Schema(name = "电话", example = "岗位")
+    private String phoneNumber;
 
     @Column(name = "remark", columnDefinition = "varchar(255)")
     @Schema(name = "备注", example = "这是一条描述信息")

@@ -23,7 +23,7 @@ import java.util.List;
  * @ChineseDescription:
  * @Modified_By:
  */
-@Service("UserRoleRelationService")
+@Service("userRoleRelationService")
 @Slf4j
 public class UserRoleRelationServiceImpl extends BasicInterfaceImpl<UserRoleRelation> implements UserRoleRelationService {
 

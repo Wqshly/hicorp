@@ -25,7 +25,7 @@ public class BasicData implements Serializable {
     @Schema(name = "类别编号", example = "GW100001")
     private String categoryNumber;
 
-    @Column(name = "category_number", columnDefinition = "varchar(45)", length = 45, nullable = false)
+    @Column(name = "category_name", columnDefinition = "varchar(45)", length = 45, nullable = false)
     @Schema(name = "类别名", example = "GW100001")
     private String categoryName;
 

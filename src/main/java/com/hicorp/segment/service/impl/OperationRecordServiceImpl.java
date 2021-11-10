@@ -11,6 +11,6 @@ import org.springframework.stereotype.Service;
  * @ChineseDescription:
  * @Modified_By:
  */
-@Service("OperationRecordService")
+@Service("operationRecordService")
 public class OperationRecordServiceImpl extends BasicInterfaceImpl<OperationRecord> implements OperationRecordService {
 }
