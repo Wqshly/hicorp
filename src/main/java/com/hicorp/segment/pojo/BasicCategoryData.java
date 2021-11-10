@@ -23,15 +23,23 @@ public class BasicCategoryData implements Serializable {
 
     @Column(name = "number", columnDefinition = "varchar(45)", length = 45, nullable = false)
     @Schema(name = "类别编号", example = "GW100001")
-    private String categoryNumber;
+    private String number;
 
-    @Column(name = "number", columnDefinition = "varchar(45)", length = 45, nullable = false)
+    @Column(name = "name", columnDefinition = "varchar(45)", length = 45, nullable = false)
     @Schema(name = "类别名", example = "GW100001")
-    private String categoryName;
+    private String name;
+
+    @Column(name = "description", columnDefinition = "varchar(255)", nullable = false)
+    @Schema(name = "描述", example = "岗位")
+    private String description;
 
     @Column(name = "type", columnDefinition = "varchar(45)", length = 45, nullable = false)
     @Schema(name = "分类", example = "岗位")
     private String type;
+
+    @Column(name = "remark", columnDefinition = "varchar(255)")
+    @Schema(name = "备注", example = "岗位")
+    private String remark;
 
     @Column(name = "create_user", columnDefinition = "varchar(45)", length = 45, nullable = false)
     @Schema(name = "创建人", example = "王五")
