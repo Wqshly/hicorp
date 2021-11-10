@@ -49,13 +49,18 @@ public interface BasicInterface<T> {
     // 条件查询(分页、排序)
     ResultBean<PageInfo<T>> selectRecordsByPage(Integer page, Integer size, String sort, String field, String value);
 
+    // 条件查询（分页、排序）, 带type.
+    ResultBean<PageInfo<T>> selectRecordsByPage(Integer page, Integer size, String sort, String type, String field, String content);
+
     // 查询所有
     ResultBean<List<T>> queryInfo();
 
     // 分页、排序
     ResultBean<PageInfo<T>> queryInfo(Integer page, Integer size, String sort);
 
+    // 查询, 带type.
+    ResultBean<PageInfo<T>> queryInfo(Integer page, Integer size, String sort, String type);
+
     // 数据验证方法
     Void dataValid(T data);
-
 }

@@ -204,23 +204,18 @@ public class BasicInterfaceImpl<T> implements BasicInterface<T> {
         Assert.notNull(size, "显示条数不能为空!");
         Assert.notNull(sort, "排序不能为空!");
         Assert.notNull(fieldName, "搜索字段不能为空!");
-        Assert.notNull(value, "搜索内容不能为空!");// 声明Example
-        PageHelper.startPage(page, size, sort.replace("->", " "));
+        Assert.notNull(value, "搜索内容不能为空!");
         // 声明Example
         Example example = new Example(this.clazz);
         // 获取条件对象
         Example.Criteria criteria = example.createCriteria();
         // 设置条件,第一个是pojo的属性名,第二个参数是条件
-
-        // 获取fieldName的类型，使用反射 reflect
-
-        // 按不同的类型进行查询 if else
-        // if(type = type) {
-        // String a = (String) value
-        // criteria.andLike(fieldName, "%" + a + "%");
-        // }
-
         criteria.andLike(fieldName, "%" + value + "%");
+
+        return getPageInfoResultBean(page, size, sort, example);
+    }
+
+    private ResultBean<PageInfo<T>> getPageInfoResultBean(Integer page, Integer size, String sort, Example example) {
         try {
             PageHelper.startPage(page, size, sort.replace("->", " "));
             List<T> list = basicMapper.selectByExample(example);
@@ -233,6 +228,24 @@ public class BasicInterfaceImpl<T> implements BasicInterface<T> {
     }
 
     @Override
+    public ResultBean<PageInfo<T>> selectRecordsByPage(Integer page, Integer size, String sort, String type, String fieldName, String value) {
+        Assert.notNull(page, "页码不能为空!");
+        Assert.notNull(size, "显示条数不能为空!");
+        Assert.notNull(sort, "排序不能为空!");
+        Assert.notNull(fieldName, "搜索字段不能为空!");
+        Assert.notNull(value, "搜索内容不能为空!");
+        // 声明Example
+        Example example = new Example(this.clazz);
+        // 获取条件对象
+        Example.Criteria criteria = example.createCriteria();
+        // 设置条件,第一个是pojo的属性名,第二个参数是条件
+        criteria.andLike(fieldName, "%" + value + "%");
+        criteria.andLike("type", "%" + type + "%");
+
+        return getPageInfoResultBean(page, size, sort, example);
+    }
+
+    @Override
     public ResultBean<List<T>> queryInfo() {
         return new ResultBean<>(basicMapper.selectAll());
     }
@@ -242,10 +255,29 @@ public class BasicInterfaceImpl<T> implements BasicInterface<T> {
         Assert.notNull(page, "页码不能为空!");
         Assert.notNull(size, "显示条数不能为空!");
         Assert.notNull(sort, "排序不能为空!");
-        PageHelper.startPage(page, size, sort.replace("->", " "));
-        List<T> list = basicMapper.selectAll();
-        PageInfo<T> pageInfo = new PageInfo<>(list);
-        return new ResultBean<>(pageInfo);
+        try {
+            PageHelper.startPage(page, size, sort.replace("->", " "));
+            List<T> list = basicMapper.selectAll();
+            PageInfo<T> pageInfo = new PageInfo<>(list);
+            return new ResultBean<>(pageInfo);
+        } catch (Exception e) {
+            log.error(e.getMessage());
+            return new ResultBean<>(400, "查询失败!");
+        }
+    }
+
+    @Override
+    public ResultBean<PageInfo<T>> queryInfo(Integer page, Integer size, String sort, String type) {
+        Assert.notNull(page, "页码不能为空!");
+        Assert.notNull(size, "显示条数不能为空!");
+        Assert.notNull(sort, "排序不能为空!");
+        // 声明Example
+        Example example = new Example(this.clazz);
+        // 获取条件对象
+        Example.Criteria criteria = example.createCriteria();
+        // 设置条件,第一个是pojo的属性名,第二个参数是条件
+        criteria.andLike("type", "%" + type + "%");
+        return getPageInfoResultBean(page, size, sort, example);
     }
 
     //拦截器 拦截非空

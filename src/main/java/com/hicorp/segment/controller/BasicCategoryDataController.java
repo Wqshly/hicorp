@@ -38,21 +38,23 @@ public class BasicCategoryDataController {
     }
 
     @Operation(summary = "查询设备类型维护信息", description = "带参数为分页查询设备类型维护信息，不带为查询所有")
-    @GetMapping(value = "/list", params = {"page", "size", "sort"})
-    public ResultBean<PageInfo<BasicCategoryData>> getBasicCategoryList(@RequestParam("page") Integer page,
-                                                                        @RequestParam("size") Integer size,
-                                                                        @RequestParam("sort") String sort) {
-        return basicCategoryDataService.queryInfo(page, size, sort);
-    }
-
-    @Operation(summary = "查询设备类型维护信息", description = "带参数为分页查询设备类型维护信息，不带为查询所有")
-    @GetMapping(value = "/list/{field}/{content}", params = {"page", "size", "sort"})
+    @GetMapping(value = "/list/{type}", params = {"page", "size", "sort"})
     public ResultBean<PageInfo<BasicCategoryData>> getBasicCategoryList(@RequestParam("page") Integer page,
                                                                         @RequestParam("size") Integer size,
                                                                         @RequestParam("sort") String sort,
+                                                                        @PathVariable("type") String type) {
+        return basicCategoryDataService.queryInfo(page, size, sort, type);
+    }
+
+    @Operation(summary = "查询设备类型维护信息", description = "带参数为分页查询设备类型维护信息，不带为查询所有")
+    @GetMapping(value = "/list/{type}/{field}/{content}", params = {"page", "size", "sort"})
+    public ResultBean<PageInfo<BasicCategoryData>> getBasicCategoryList(@RequestParam("page") Integer page,
+                                                                        @RequestParam("size") Integer size,
+                                                                        @RequestParam("sort") String sort,
+                                                                        @PathVariable("type") String type,
                                                                         @PathVariable("field") String field,
                                                                         @PathVariable("content") String content) {
-        return basicCategoryDataService.selectRecordsByPage(page, size, sort, field, content);
+        return basicCategoryDataService.selectRecordsByPage(page, size, sort, type, field, content);
     }
 
     @ApiVersion(value = {ApiVersionConstant.VERSION_1_0_0, ApiVersionConstant.VERSION_1_0_1})
