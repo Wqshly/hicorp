@@ -1,6 +1,7 @@
 package com.hicorp.segment.service;
 
 import com.hicorp.segment.pojo.OperationRecord;
+import org.springframework.stereotype.Service;
 
 /**
  * @Author: wqs
@@ -9,5 +10,6 @@ import com.hicorp.segment.pojo.OperationRecord;
  * @ChineseDescription:
  * @Modified_By:
  */
+@Service
 public interface OperationRecordService extends BasicInterface<OperationRecord> {
 }
