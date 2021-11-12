@@ -2,10 +2,13 @@ package com.hicorp.segment.utils;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.google.common.collect.Maps;
+import com.hicorp.segment.mapper.MenuMapper;
 import com.hicorp.segment.mapper.PermissionMapper;
 import com.hicorp.segment.pojo.Menu;
 import com.hicorp.segment.pojo.Permission;
 import com.hicorp.segment.service.MenuService;
+import com.hicorp.segment.service.RoleMenuRelationService;
+import com.hicorp.segment.service.RolePermissionRelationService;
 import io.swagger.models.HttpMethod;
 import io.swagger.models.Operation;
 import io.swagger.models.Path;
@@ -38,15 +41,23 @@ public class InitMethod implements CommandLineRunner {
     @Resource
     private PermissionMapper permissionMapper;
 
+    @Resource
+    private MenuMapper menuMapper;
+
+    private final RolePermissionRelationService rolePermissionRelationService;
+    private final RoleMenuRelationService roleMenuRelationService;
+
     private final MenuService menuService;
     private final DocumentationCache documentationCache;
     private final ServiceModelToSwagger2Mapper mapper;
 
 
-    public InitMethod(DocumentationCache documentationCache, ServiceModelToSwagger2Mapper mapper, MenuService menuService) {
+    public InitMethod(DocumentationCache documentationCache, ServiceModelToSwagger2Mapper mapper, MenuService menuService, RolePermissionRelationService rolePermissionRelationService, RoleMenuRelationService roleMenuRelationService) {
         this.documentationCache = documentationCache;
         this.mapper = mapper;
         this.menuService = menuService;
+        this.rolePermissionRelationService = rolePermissionRelationService;
+        this.roleMenuRelationService = roleMenuRelationService;
     }
 
     // 初始化 permission 表数据
@@ -80,13 +91,21 @@ public class InitMethod implements CommandLineRunner {
         deleteApiIfDeprecated(apis, compareApis);
     }
 
-    // 初始化 menu 表数据
+    // 初始化 menu 表数据, 并为超级管理员添加所有页面访问权限
     public void initMenu(String fileName) {
         String json = FileOption.readJsonFile(fileName);
         List<Menu> menus = JsonUtil.decode(json, new TypeReference<>() {
         });
         assert menus != null;
         menuService.dataSave(menus);
+    }
+
+    // 为超级管理员添加所有api访问权限和页面访问权限.
+    public void initRootManager() {
+        List<Long> permissions = permissionMapper.selectAllId();
+        List<Long> menus = menuMapper.selectAllId();
+        rolePermissionRelationService.setRootPermission(1L, permissions);
+        roleMenuRelationService.setRootMenu(1L, menus);
     }
 
     private String getRealPath(String path) {
@@ -99,6 +118,7 @@ public class InitMethod implements CommandLineRunner {
 //        }
         return realApiPath;
     }
+
     // 添加 API 至数据库
     private void createApiIfNeeded(Map<String, Boolean> apiMap, String apiPath, Operation operation, String method, Date currentTime) {
         if (operation == null) {
@@ -141,6 +161,7 @@ public class InitMethod implements CommandLineRunner {
     public void run(String... args) throws Exception {
         this.initPermission();
         this.initMenu("menu.json");
+        this.initRootManager();
         System.out.println("### INIT_TIPS: init resources by implements ApplicationRunner");
     }
 }

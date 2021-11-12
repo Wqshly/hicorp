@@ -2,6 +2,7 @@ package com.hicorp.segment.service;
 
 import com.hicorp.segment.pojo.RoleMenuRelation;
 import com.hicorp.segment.utils.ResultBean;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
@@ -12,8 +13,11 @@ import java.util.List;
  * @ChineseDescription:
  * @Modified_By:
  */
+@Service
 public interface RoleMenuRelationService  extends BasicInterface<RoleMenuRelation>{
     ResultBean<List<Long>> selectMenuIdByRoleId(Long id);
 
     ResultBean<Integer> changeRoleMenuRelation(Long roleId, List<Long> menuIds);
+
+    ResultBean<Integer> setRootMenu(Long roleId, List<Long> menuIds);
 }

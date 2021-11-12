@@ -71,4 +71,28 @@ public class RolePermissionRelationServiceImpl extends BasicInterfaceImpl<RolePe
             return new ResultBean<>(-1, 400, "更新失败");
         }
     }
+
+    @Override
+    @Transactional(rollbackFor = Exception.class)
+    public ResultBean<Integer> setRootPermission(Long roleId, List<Long> permissionIds) {
+        int result = -1;
+        Assert.notNull(roleId, "角色ID不能为空!");
+        Assert.isTrue(permissionIds.size() > 0, "你不能清空一个角色的所有权限，如需不需要该角色，请直接删除掉。");
+        Date date = new Date();
+        List<RolePermissionRelation> rolePermissionRelations = new ArrayList<>();
+        rolePermissionRelationMapper.deleteByRoleId(roleId);
+        permissionIds.forEach(permissionId -> {
+            RolePermissionRelation rolePermissionRelation = new RolePermissionRelation(roleId, permissionId, "root", date);
+            rolePermissionRelations.add(rolePermissionRelation);
+        });
+        try {
+            result = rolePermissionRelationMapper.insertList(rolePermissionRelations);
+            return new ResultBean<>(result);
+        } catch (Exception e) {
+            log.error(e.getMessage());
+            // 手动回滚
+            TransactionAspectSupport.currentTransactionStatus().setRollbackOnly();
+            return new ResultBean<>(-1, 400, "更新失败");
+        }
+    }
 }

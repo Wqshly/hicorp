@@ -52,14 +52,10 @@ public class UserDetailServiceImpl implements UserDetailsService {
 
         List<Menu> menuList;
         List<Permission> permissions;
-        if (user.getId() == 1) {
-            menuList = menuMapper.selectAll();
-            permissions = permissionMapper.selectAll();
-        } else {
-            menuList = menuMapper.selectByUserId(user.getId());
-            permissions = permissionMapper.findPermissionByUserId(user.getId());
-        }
-//        menuMapper.select
+
+        menuList = menuMapper.selectByUserId(user.getId());
+        permissions = permissionMapper.findPermissionByUserId(user.getId());
+
         List<GrantedAuthority> grantedAuthorities = new ArrayList<>();
 
         if (CollectionUtils.isEmpty(grantedAuthorities)) {

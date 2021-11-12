@@ -2,6 +2,7 @@ package com.hicorp.segment.service;
 
 import com.hicorp.segment.pojo.RolePermissionRelation;
 import com.hicorp.segment.utils.ResultBean;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
@@ -12,8 +13,11 @@ import java.util.List;
  * @ChineseDescription:
  * @Modified_By:
  */
+@Service
 public interface RolePermissionRelationService extends BasicInterface<RolePermissionRelation> {
     ResultBean<List<Long>> getPermissionIdByRoleId(Long roleId);
 
     ResultBean<Integer> changeRolePermissionRelation(Long roleId, List<Long> permissionIds);
+
+    ResultBean<Integer> setRootPermission(Long roleId, List<Long> permissionIds);
 }

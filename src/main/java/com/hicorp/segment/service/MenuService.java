@@ -2,6 +2,7 @@ package com.hicorp.segment.service;
 
 import com.hicorp.segment.pojo.Menu;
 import com.hicorp.segment.utils.ResultBean;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
@@ -12,6 +13,7 @@ import java.util.List;
  * @ChineseDescription:
  * @Modified_By:
  */
+@Service
 public interface MenuService extends BasicInterface<Menu> {
 
     void dataSave(List<Menu> menus);
