@@ -18,4 +18,6 @@ public interface RolePermissionRelationService extends BasicInterface<RolePermis
     ResultBean<List<Long>> getPermissionIdByRoleId(Long roleId);
 
     ResultBean<Integer> changeRolePermissionRelation(Long roleId, List<Long> permissionIds);
+
+    ResultBean<Integer> setRootPermission(Long roleId, List<Long> permissionIds);
 }

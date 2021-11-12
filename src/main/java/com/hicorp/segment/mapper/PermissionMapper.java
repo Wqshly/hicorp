@@ -8,4 +8,5 @@ import java.util.List;
 
 public interface PermissionMapper extends BasicMapper<Permission> {
     List<Permission> findPermissionByUserId(long userId);
+    List<Long> selectAllId();
 }

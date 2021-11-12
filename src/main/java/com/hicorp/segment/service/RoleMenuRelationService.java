@@ -18,4 +18,6 @@ public interface RoleMenuRelationService  extends BasicInterface<RoleMenuRelatio
     ResultBean<List<Long>> selectMenuIdByRoleId(Long id);
 
     ResultBean<Integer> changeRoleMenuRelation(Long roleId, List<Long> menuIds);
+
+    ResultBean<Integer> setRootMenu(Long roleId, List<Long> menuIds);
 }

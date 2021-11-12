@@ -69,4 +69,28 @@ public class RoleMenuRelationServiceImpl extends BasicInterfaceImpl<RoleMenuRela
             return new ResultBean<>(-1, 400, "更新失败");
         }
     }
+
+    @Override
+    @Transactional(rollbackFor = Exception.class)
+    public ResultBean<Integer> setRootMenu(Long roleId, List<Long> menuIds) {
+        int result = -1;
+        Assert.notNull(roleId, "角色ID不能为空!");
+        Assert.isTrue(menuIds.size() > 0, "你不能删除该角色所有的菜单，如需删除角色，请勾选并点击删除按钮!");
+        Date date = new Date();
+        List<RoleMenuRelation> roleMenuRelations = new ArrayList<>();
+        roleMenuRelationMapper.deleteByRoleId(roleId);
+        menuIds.forEach(menuId -> {
+            RoleMenuRelation roleMenuRelation = new RoleMenuRelation(roleId, menuId, "root", date);
+            roleMenuRelations.add(roleMenuRelation);
+        });
+        try {
+            result = roleMenuRelationMapper.insertList(roleMenuRelations);
+            return new ResultBean<>(result);
+        } catch (Exception e) {
+            log.error(e.getMessage());
+            // 手动回滚
+            TransactionAspectSupport.currentTransactionStatus().setRollbackOnly();
+            return new ResultBean<>(-1, 400, "更新失败");
+        }
+    }
 }

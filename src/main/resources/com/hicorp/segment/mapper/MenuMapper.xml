@@ -16,4 +16,8 @@
         FROM menu
         order by menu_orders
     </select>
+    <select id="selectAllId" resultType="java.lang.Long">
+        SELECT id
+        FROM menu
+    </select>
 </mapper>

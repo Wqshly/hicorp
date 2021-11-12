@@ -12,4 +12,6 @@ public interface MenuMapper extends BasicMapper<Menu> {
     List<Menu> selectAll();
 
     List<Menu> selectByUserId(long userId);
+
+    List<Long> selectAllId();
 }
