@@ -685,15 +685,16 @@ CREATE TABLE IF NOT EXISTS `hicorp_segment`.`approve_process_sub` (
 
 
 -- -----------------------------------------------------
--- Table `hicorp_segment`.`contact_team`
+-- Table `hicorp_segment`.`contract_team`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `hicorp_segment`.`contact_team` ;
+DROP TABLE IF EXISTS `hicorp_segment`.`contract_team` ;
 
-CREATE TABLE IF NOT EXISTS `hicorp_segment`.`contact_team` (
+CREATE TABLE IF NOT EXISTS `hicorp_segment`.`contract_team` (
                                                                `id` BIGINT UNSIGNED NOT NULL AUTO_INCREMENT,
                                                                `number` VARCHAR(45) NOT NULL,
                                                                `name` VARCHAR(45) NOT NULL COMMENT '承包队名',
-                                                               `charge_persaon` VARCHAR(45) NOT NULL COMMENT '负责人',
+                                                               `charge_person` VARCHAR(45) NOT NULL COMMENT '负责人',
+                                                               `phone_number` VARCHAR(45) NOT NULL COMMENT '15305016015',
                                                                `create_user` VARCHAR(45) NOT NULL,
                                                                `create_gmt` DATETIME NOT NULL,
                                                                `modified_user` VARCHAR(45) NULL DEFAULT NULL,
@@ -712,8 +713,8 @@ DROP TABLE IF EXISTS `hicorp_segment`.`external_staff` ;
 CREATE TABLE IF NOT EXISTS `hicorp_segment`.`external_staff` (
                                                                  `id` BIGINT UNSIGNED NOT NULL AUTO_INCREMENT,
                                                                  `user_account` VARCHAR(16) NULL DEFAULT NULL,
-                                                                 `contact_team_number` VARCHAR(45) NOT NULL,
-                                                                 `contact_team_name` VARCHAR(45) NOT NULL COMMENT '所属承包队队名',
+                                                                 `contract_team_number` VARCHAR(45) NOT NULL,
+                                                                 `contract_team_name` VARCHAR(45) NOT NULL COMMENT '所属承包队队名',
                                                                  `number` VARCHAR(45) NOT NULL COMMENT '工号',
                                                                  `name` VARCHAR(45) NOT NULL COMMENT '姓名',
                                                                  `phone` CHAR(11) NOT NULL,
@@ -726,15 +727,15 @@ CREATE TABLE IF NOT EXISTS `hicorp_segment`.`external_staff` (
                                                                  `modified_gmt` DATETIME NULL DEFAULT NULL COMMENT '修改时间',
                                                                  PRIMARY KEY (`id`),
                                                                  INDEX `fk_external_staff_user1_idx` (`user_account` ASC) VISIBLE,
-                                                                 INDEX `fk_external_staff_contact_team1_idx` (`contact_team_number` ASC) VISIBLE,
+                                                                 INDEX `fk_external_staff_contract_team1_idx` (`contract_team_number` ASC) VISIBLE,
                                                                  CONSTRAINT `fk_external_staff_user1`
                                                                      FOREIGN KEY (`user_account`)
                                                                          REFERENCES `hicorp_segment`.`user` (`user_name`)
                                                                          ON DELETE NO ACTION
                                                                          ON UPDATE NO ACTION,
-                                                                 CONSTRAINT `fk_external_staff_contact_team1`
-                                                                     FOREIGN KEY (`contact_team_number`)
-                                                                         REFERENCES `hicorp_segment`.`contact_team` (`number`)
+                                                                 CONSTRAINT `fk_external_staff_contract_team1`
+                                                                     FOREIGN KEY (`contract_team_number`)
+                                                                         REFERENCES `hicorp_segment`.`contract_team` (`number`)
                                                                          ON DELETE NO ACTION
                                                                          ON UPDATE NO ACTION)
     ENGINE = InnoDB;
