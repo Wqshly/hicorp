@@ -1,5 +1,5 @@
 -- init insert data, root user and root permission --
-INSERT user(`id`, user_name, `password`, `create_gmt`) SELECT '1', 'root', '$2a$10$B/uC6/8PZA28pCwdaxQ1z.LbpEe0gxCZAT0BEKngiGkSwVka85OyK', current_timestamp FROM dual WHERE not exists(select 1 from user where user.id = 1);
+INSERT user(`id`, user_name, `password`, `create_user`, `create_gmt`) SELECT '1', 'root', '$2a$10$B/uC6/8PZA28pCwdaxQ1z.LbpEe0gxCZAT0BEKngiGkSwVka85OyK','root', current_timestamp FROM dual WHERE not exists(select 1 from user where user.id = 1);
 INSERT role(`id`, `name`, `introduction`, `create_user`, `create_gmt`) SELECT '1', 'root', '超级管理员角色', 'root', current_timestamp FROM dual WHERE not exists(select 1 from role where role.id = 1);
 INSERT user_role_relation(`id`, `user_id`, `role_id`, `create_user`, `create_gmt`) SELECT '1', '1', '1', 'root', current_timestamp FROM dual WHERE not exists(select 1 from user_role_relation where user_role_relation.id = 1);
 # INSERT menu(`id`, title, `index`, `create_user`, `create_gmt`) SELECT '1', 'root', '/', 'root', current_timestamp FROM dual WHERE not exists(select 1 from menu where menu.id = 1);
