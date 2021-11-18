@@ -4,13 +4,11 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 
-import javax.persistence.Column;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.io.Serial;
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 
 /**
  * approve_process
@@ -40,8 +38,8 @@ public class ApproveProcess implements Serializable {
     /**
      * 审批所对应的表的名字。
      */
-    @ApiModelProperty(value="审批所对应的表的名字。")
-    private String tableName;
+    @ApiModelProperty(value="审批类别。")
+    private String type;
 
     /**
      * 审批内容
@@ -56,4 +54,8 @@ public class ApproveProcess implements Serializable {
     private String modifiedUser;
 
     private Date modifiedGmt;
+
+    @ApiModelProperty(value = "审批流每级的默认审批人")
+    @Transient
+    private List<DefaultApprover> defaultApproverList;
 }

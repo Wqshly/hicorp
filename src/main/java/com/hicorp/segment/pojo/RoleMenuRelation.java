@@ -42,15 +42,6 @@ public class RoleMenuRelation implements Serializable {
     @Schema(name = "创建时间", example = "2021-11-01 08:00")
     private Date createGmt;
 
-    @Column(name = "modified_user", columnDefinition = "varchar(45)", length = 45)
-    @Schema(name = "修改人", example = "张三")
-    private String modifiedUser;
-
-    @Temporal(TemporalType.TIMESTAMP)
-    @Column(name = "modified_gmt", columnDefinition = "datetime")
-    @Schema(name = "创建时间", example = "2021-11-01 08:00")
-    private Date modifiedGmt;
-
     @Serial
     private static final long serialVersionUID = 1L;
 

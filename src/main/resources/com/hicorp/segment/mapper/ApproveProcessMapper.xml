@@ -1,4 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.hicorp.segment.mapper.ApproveProcessMapper">
+    <resultMap id="ApproveProcess" type="com.hicorp.segment.pojo.ApproveProcess">
+        <id column="id" jdbcType="BIGINT" property="id"/>
+        <result column="number" jdbcType="VARCHAR" property="number"/>
+        <result column="name" jdbcType="VARCHAR" property="name"/>
+        <result column="type" jdbcType="VARCHAR" property="type"/>
+        <result column="content" jdbcType="VARCHAR" property="content"/>
+        <result column="create_user" jdbcType="VARCHAR" property="createUser"/>
+        <result column="create_gmt" jdbcType="TIMESTAMP" property="createGmt"/>
+        <result column="modified_user" jdbcType="VARCHAR" property="modifiedUser"/>
+        <result column="modified_gmt" jdbcType="TIMESTAMP" property="modifiedGmt"/>
+        <collection property="defaultApproverList" column="id" select="findDefaultApprover"
+                    ofType="com.hicorp.segment.pojo.DefaultApprover"/>
+    </resultMap>
+    <select id="selectAll" resultMap="ApproveProcess">
+        select *
+        from approve_process
+    </select>
+    <select id="findDefaultApprover" resultType="com.hicorp.segment.pojo.DefaultApprover">
+        select *
+        from default_approver
+        where approve_process_id = #{id, jdbcType = BIGINT}
+    </select>
 </mapper>

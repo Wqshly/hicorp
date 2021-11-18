@@ -35,6 +35,9 @@ public class User implements Serializable {
     @Schema(name = "用户密码", example = "wqs123456")
     private String password;
 
+    @Column(name = "create_user", columnDefinition = "varchar(45)")
+    private String createUser;
+
     @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "create_gmt", columnDefinition = "datetime", nullable = false)
     private Date createGmt;

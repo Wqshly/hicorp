@@ -1,6 +1,6 @@
 package com.hicorp.segment.service.impl;
 
-import com.hicorp.segment.pojo.ApproveProcessSub;
+import com.hicorp.segment.pojo.DefaultApprover;
 import com.hicorp.segment.service.ApproveProcessSubService;
 import org.springframework.stereotype.Service;
 
@@ -12,5 +12,5 @@ import org.springframework.stereotype.Service;
  * @Modified_By:
  */
 @Service("approveProcessSubServiceImpl")
-public class ApproveProcessSubServiceImpl extends BasicInterfaceImpl<ApproveProcessSub> implements ApproveProcessSubService {
+public class ApproveProcessSubServiceImpl extends BasicInterfaceImpl<DefaultApprover> implements ApproveProcessSubService {
 }
